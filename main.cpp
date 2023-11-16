@@ -93,7 +93,26 @@ int main()
     const int VERTICES_SIZE = 2023;
     float vertices[VERTICES_SIZE];
 
-    auto vertices_vec = Construct::test2();
+    std::cout << "Please enter Test Case Number (1,2,3):" << std::endl;
+    int case_number;
+    std::cin >> case_number;
+
+    std::vector<glm::vec3> vertices_vec;
+
+    if (case_number == 1) {
+        vertices_vec = Construct::test1();
+    }
+    else if (case_number == 2) {
+        vertices_vec = Construct::test2();
+    }
+    else if (case_number == 3) {
+        vertices_vec = Construct::test3();
+    }
+    else {
+        std::cout << "InValid case number." << std::endl;
+        return 0;
+    }
+
     int draw_size = vertices_vec.size()*2;
 
     for (unsigned int i = 0, j = 0; i < vertices_vec.size(); i += 3) {
